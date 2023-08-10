@@ -1,10 +1,12 @@
 pipeline{
   agent{
-    docker {image 'java:latest' }
+    docker {image 'jopenjdk:11' }
     }
     stages{
       stage('Checkout'){
-          git 'https://github.com/ali-057/java'
+          steps{
+              git 'https://github.com/ali-057/java'
+          } 
       }
       stage('Compile and  run java program')  {
         steps  {
@@ -14,4 +16,5 @@ pipeline{
       }
     }
 }
+
 
