@@ -1,12 +1,17 @@
 pipeline{
   agent{
-    docker {image 'node:16-alpine' }
+    docker {image 'java:latest' }
     }
     stages{
-      stage('Test')  {
+      stage('Checkout'){
+          git 'https://github.com/ali-057/java'
+      }
+      stage('Compile and  run java program')  {
         steps  {
-          sh 'node --version'
+          sh 'javac hello.java'
+          sh 'java hello'
         }
       }
     }
 }
+
